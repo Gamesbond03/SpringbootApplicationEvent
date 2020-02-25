@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: com.avl.data.messagebroker.consumer
+  kafka:
+    consumer:
+      bootstrap-servers: atgrzsl2929.avl01.avlcorp.lan:9092
+      topics: integrationtest-qubits-logging-all
+      group-id: group_id_13
+      auto-offset-reset: earliest
+      key-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      schema-registry-url: atgrzsl2929.avl01.avlcorp.lan:30002
+      properties:
+        schema:
+          registry:
+            url: http://atgrzsl2929.avl01.avlcorp.lan:30002
+  modelDataCacheRefreshInterval: 60000

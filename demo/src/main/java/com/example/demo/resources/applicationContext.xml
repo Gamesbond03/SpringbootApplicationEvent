@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!-- We can define our beans here -->
+   <bean id="solrSink" class="com.avl.data.messagebroker.consumer.listener.solr.KafkaSolrSink">
+       <constructor-arg ref="avroToSolrConverter" />
+       <constructor-arg value="http://192.168.248.19:8983/solr/Avl.Search.GenericCore"/>
+   </bean>
+
+    <bean id="avroToSolrConverter" class="com.avl.data.messagebroker.consumer.listener.solr.SimpleAvroToSolrConverter"></bean>
+ <!-- <bean id="appProperties" class="com.avl.data.common.modeldata.CachedModelDataAccess">
+       <constructor-arg ref="avroToSolrConverter" />
+       <constructor-arg value="http://192.168.248.19:8983/solr/Avl.Search.GenericCore"/>
+   </bean> -->
+</beans>
